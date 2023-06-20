@@ -1,0 +1,102 @@
+.mb_foot,
+.pc_foot {
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.pc_foot {
+  width: 100%;
+  max-width: 1280px;
+  margin: 20px auto;
+}
+
+.pc_foot .foot_logo {
+  width: 120px;
+}
+.pc_foot .foot_logo img {
+  width: 100%;
+}
+
+.pc_foot .flex_start {
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin-top: 20px;
+  padding: 30px 0;
+  flex-direction: row-reverse;
+}
+
+.pc_foot .flex_start div img {
+  width: 120px;
+}
+
+.category_box {
+  font-size: 1.2rem;
+  color: #a6a6a6;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #a6a6a6;
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.drop_box {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.drop_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.drop_container ul {
+  border: 1px solid #a6a6a6;
+}
+
+.drop_container ul li {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 16px 16px;
+  z-index: 1;
+  background: white;
+  cursor: pointer;
+}
+
+.hmc_info {
+  margin-bottom: 20px;
+}
+
+.hmc_info p {
+  margin-bottom: 6px;
+}
+
+small {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gray {
+  color: #686868;
+}
+
+.hmc_inquiry p {
+  margin-bottom: 12px;
+}
+
+.hmc_inquiry button {
+  border: 1px solid;
+  color: #0060ad;
+  border-radius: 4px;
+  padding: 10px 12px 12px;
+}
+
+.hmc_inquiry button span {
+  margin-right: 12px;
+}

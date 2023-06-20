@@ -6,8 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import styled from "styled-components";
 import "./App.css";
 
-// import Header from "./routes/Header";
-// import Footer from "./routes/Footer";
+import Nav from "./components/Nav";
+import Header from "./routes/Header";
+import Footer from "./routes/Footer";
+import Main from "./routes/Main";
 
 const App: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -35,7 +37,7 @@ const App: React.FC = () => {
     <>
       <div className="App">
         Hi
-        {/* <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header
             isNavToggle={isNavToggle}
             onToggle={handleToggle}
@@ -48,7 +50,7 @@ const App: React.FC = () => {
                 path="/"
                 element={<Main windowWidth={windowWidth} />}
               ></Route>
-              <Route
+              {/* <Route
                 path="/about/*"
                 element={<About windowWidth={windowWidth} />}
               ></Route>
@@ -67,7 +69,7 @@ const App: React.FC = () => {
               <Route
                 path="/contact"
                 element={<Contact windowWidth={windowWidth} />}
-              ></Route>
+              ></Route> */}
             </Routes>
           )}
 
@@ -75,7 +77,7 @@ const App: React.FC = () => {
             <Nav isNavToggle={isNavToggle} onToggle={handleToggle}></Nav>
           )}
           <Footer onToggle={handleToggle} windowWidth={windowWidth} />
-        </BrowserRouter> */}
+        </BrowserRouter>
       </div>
     </>
   );

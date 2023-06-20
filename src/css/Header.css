@@ -1,0 +1,45 @@
+.topbar {
+  padding: 20px;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.topbar img {
+  width: 200px;
+}
+
+.icons_box {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.pc_nav li {
+  display: inline-block;
+  font-size: 1.2rem;
+  width: 124px;
+  text-align: center;
+  margin: 0 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.pc_nav li:hover {
+  color: #0060ad;
+}
+
+.pc_nav li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  border-bottom: 2px solid #0060ad;
+  left: 0;
+  bottom: -24px;
+  transition: .4s;
+}
+
+.pc_nav li:hover::after {
+  width: 100%;
+}

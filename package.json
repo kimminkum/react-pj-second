@@ -1,8 +1,12 @@
 {
   "name": "react-pj-second",
   "version": "0.1.0",
+  "homepage": "http://kimminkum.github.io/react-pj-second/",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -20,9 +24,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build:staging": "env-cmd -f .env.staging npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
