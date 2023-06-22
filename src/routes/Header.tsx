@@ -12,7 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // interface HeaderProps {
-//   windowWidth: number;
+//   offPopup: () => void;
 // }
 
 const Header: React.FC = () => {

@@ -12,21 +12,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-interface MainProps {
-  isPopup: boolean;
-  offPopup: () => void;
-}
+// interface MainProps {
+//   isPopup: boolean;
+// }
 
-const Main: React.FC<MainProps> = ({ isPopup, offPopup }) => {
+const Main: React.FC = () => {
   return (
-    <div className={`${isPopup ? "popupon" : ""}`}>
-      <div>
-        <img
-          src="https://cdn.dominos.co.kr/renewal2018/w/img/img_gate_230620.jpg"
-          alt=""
-        />
-      </div>
-
+    <div>
       <div className="banner">
         <Swiper
           modules={[Navigation, Scrollbar, A11y, Autoplay]}

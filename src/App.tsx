@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,30 +20,26 @@ const App: React.FC = () => {
   };
 
   // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
+  // const handleResize = () => {
+  //   setWindowWidth(window.innerWidth);
+  // };
+  // window.addEventListener("resize", handleResize);
+  // return () => {
+  //   window.removeEventListener("resize", handleResize);
+  // };
   // }, []);
 
   return (
     <>
       <div className={`App ${isPopup ? "popupon" : ""}`}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <Header />
+          {!isPopup && <Header />}
           {/* windowWidth={windowWidth}  */}
 
-          <Routes>
-            <Route
-              path="/"
-              element={<Main isPopup={isPopup} offPopup={handleToggle} />}
-            ></Route>
-            {/* <Route
+          {!isPopup && (
+            <Routes>
+              <Route path="/" element={<Main />}></Route>
+              {/* <Route
                 path="/about/*"
                 element={<About windowWidth={windowWidth} />}
               ></Route>
@@ -63,9 +59,37 @@ const App: React.FC = () => {
                 path="/contact"
                 element={<Contact windowWidth={windowWidth} />}
               ></Route> */}
-          </Routes>
+            </Routes>
+          )}
 
-          <Footer />
+          {isPopup && (
+            <div className="modal">
+              <div>
+                <img
+                  src="https://cdn.dominos.co.kr/renewal2018/w/img/img_gate_230620.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div>
+                <div onClick={handleToggle}></div>
+
+                <div>
+                  <div>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/6r_Ujf1q07k?mute=1"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {!isPopup && <Footer />}
         </BrowserRouter>
       </div>
     </>
