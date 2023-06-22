@@ -12,45 +12,38 @@ import Footer from "./routes/Footer";
 import Main from "./routes/Main";
 
 const App: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isNavToggle, setIsNavToggle] = useState(false);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isPopup, setisPopup] = useState(true);
 
   const handleToggle = () => {
-    setIsNavToggle(!isNavToggle);
+    setisPopup(false);
   };
 
-  // const pathName = new URL(window.location.href).pathname;
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  //   window.addEventListener("resize", handleResize);
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <>
-      <div className="App">
-        Hi
+      <div className={`App ${isPopup ? "popupon" : ""}`}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <Header
-            isNavToggle={isNavToggle}
-            onToggle={handleToggle}
-            windowWidth={windowWidth}
-          />
+          <Header />
+          {/* windowWidth={windowWidth}  */}
 
-          {!isNavToggle && (
-            <Routes>
-              <Route
-                path="/"
-                element={<Main windowWidth={windowWidth} />}
-              ></Route>
-              {/* <Route
+          <Routes>
+            <Route
+              path="/"
+              element={<Main isPopup={isPopup} offPopup={handleToggle} />}
+            ></Route>
+            {/* <Route
                 path="/about/*"
                 element={<About windowWidth={windowWidth} />}
               ></Route>
@@ -70,13 +63,9 @@ const App: React.FC = () => {
                 path="/contact"
                 element={<Contact windowWidth={windowWidth} />}
               ></Route> */}
-            </Routes>
-          )}
+          </Routes>
 
-          {isNavToggle && (
-            <Nav isNavToggle={isNavToggle} onToggle={handleToggle}></Nav>
-          )}
-          <Footer onToggle={handleToggle} windowWidth={windowWidth} />
+          <Footer />
         </BrowserRouter>
       </div>
     </>

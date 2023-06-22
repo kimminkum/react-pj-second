@@ -100,3 +100,7 @@ ul {
   display: flex;
   justify-content: center;
 }
+
+.App.popupon {
+  overflow: hidden;
+}
