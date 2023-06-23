@@ -20,6 +20,7 @@ h5,
 h6,
 p {
   color: inherit;
+  letter-spacing: -.7px;
 }
 
 h1 {
@@ -99,6 +100,10 @@ ul {
 .flex_center {
   display: flex;
   justify-content: center;
+}
+
+img {
+  width: 100px;
 }
 
 .App.popupon {

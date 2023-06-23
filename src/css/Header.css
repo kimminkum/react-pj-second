@@ -1,45 +1,165 @@
 .topbar {
-  padding: 20px;
-  align-items: center;
-  max-width: 1280px;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  height: auto;
+  z-index: 9;
+  margin: 0 auto;
+  align-items: center;
+  display: none; /* 추가된 부분 */
+}
+
+.topbar.show {
+  display: flex; /* 추가된 부분 */
+}
+
+.topbar > div {
+  width: 1280px;
   margin: 0 auto;
 }
 
 .topbar img {
-  width: 200px;
+  width: 160px;
 }
 
-.icons_box {
-  font-size: 1.7rem;
-  cursor: pointer;
-}
-
-.pc_nav li {
-  display: inline-block;
-  font-size: 1.2rem;
-  width: 124px;
-  text-align: center;
-  margin: 0 10px;
-  font-weight: bold;
+.topbar > div > :nth-child(2) {
+  width: 360px;
   position: relative;
 }
 
-.pc_nav li:hover {
-  color: #0060ad;
-}
-
-.pc_nav li::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 100%;
-  border-bottom: 2px solid #0060ad;
-  left: 0;
-  bottom: -24px;
-  transition: .4s;
-}
-
-.pc_nav li:hover::after {
+input[type="text"] {
+  border: 0px;
+  border-bottom: 1px solid #333;
   width: 100%;
+  padding: .4rem .8rem .4rem 1.8rem;
+}
+
+input::placeholder {
+  font-size: 1rem;
+  color: black;
+  letter-spacing: -.8px;
+}
+
+.topbar > div > :nth-child(2) .paper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+.topbar > div > :nth-child(3) > ul > * {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.topbar > div > :nth-child(3) > ul > .lang {
+  padding: 2px;
+  line-height: 22px;
+}
+.topbar > div > :nth-child(3) > ul > .lang > div {
+  border-radius: 20px;
+  border: 1px solid #cecece;
+}
+
+.lang .lang_title p {
+  margin-right: 10px;
+}
+.lang .lang_title svg {
+  margin-top: 4px;
+}
+
+.lang > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lang > div > .lang_drop {
+  position: absolute;
+  top: 110%;
+  z-index: 3;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.lang > div > .lang_drop ul li {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100%;
+  padding: 3px 0;
+  background: #f1f1f1;
+}
+
+.menu_nav {
+  position: fiexd;
+  top: 80px;
+  width: 100%;
+  z-index: 8;
+  position: relative;
+  background-color: #fff;
+}
+
+.header.hide .menu_nav {
+  position: fixed;
+  top: 0;
+}
+
+.menu_nav .navList {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.menu_nav .plus_nav {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  padding: 10px 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.menu_nav .plus_nav > div {
+  width: 1280px;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px 20px 50px;
+  background: white;
+}
+
+.menu_nav .plus_nav > div > :nth-child(1) {
+  width: 70%;
+}
+
+.menu_nav .plus_nav > div > :nth-child(1) ul {
+  width: 240px;
+}
+
+.menu_nav .plus_nav > div > :nth-child(2) {
+  width: 30%;
+  padding: 40px 30px;
+  border-left: 1px solid #aaa;
+}
+
+.menu_nav .plus_nav > div > div ul > :first-child li {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #333;
+}
+
+.menu_nav .plus_nav > div > div ul a li {
+  margin-bottom: 20px;
+  color: #777;
 }

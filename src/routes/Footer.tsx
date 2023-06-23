@@ -40,10 +40,10 @@ const Footer: React.FC = () => {
 
           <div className="hmc_inquiry">
             <p className="p_title">간병인 매칭 문의</p>
-            <button className="foot_button">
+            {/* <button className="foot_button">
               <span>간병인 문의 하러가기</span>
               <FontAwesomeIcon icon={faAngleRight} />
-            </button>
+            </button> */}
           </div>
 
           <div>

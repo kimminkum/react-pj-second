@@ -6,17 +6,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import styled from "styled-components";
 import "./App.css";
 
-import Nav from "./components/Nav";
 import Header from "./routes/Header";
 import Footer from "./routes/Footer";
 import Main from "./routes/Main";
 
 const App: React.FC = () => {
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isPopup, setisPopup] = useState(true);
+  const [isPopup, setisPopup] = useState(false);
+  const [plusPopup, setPlusPopup] = useState(false);
 
-  const handleToggle = () => {
+  const offToggle = () => {
     setisPopup(false);
+  };
+
+  const plusToggle = () => {
+    setPlusPopup(!plusPopup);
   };
 
   // useEffect(() => {
@@ -33,7 +37,7 @@ const App: React.FC = () => {
     <>
       <div className={`App ${isPopup ? "popupon" : ""}`}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-          {!isPopup && <Header />}
+          {!isPopup && <Header plusToggle={plusToggle} plusPopup={plusPopup} />}
           {/* windowWidth={windowWidth}  */}
 
           {!isPopup && (
@@ -72,7 +76,7 @@ const App: React.FC = () => {
               </div>
 
               <div>
-                <div onClick={handleToggle}></div>
+                <div onClick={offToggle}></div>
 
                 <div>
                   <div>

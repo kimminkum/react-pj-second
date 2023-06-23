@@ -19,6 +19,96 @@ import "swiper/css/scrollbar";
 const Main: React.FC = () => {
   return (
     <div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+
+      <div>a</div>
+      <div>a</div>
       <div className="banner">
         <Swiper
           modules={[Navigation, Scrollbar, A11y, Autoplay]}
