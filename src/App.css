@@ -10,6 +10,7 @@ body {
   line-height: 1rem;
   word-wrap: break-word;
   word-break: keep-all;
+  letter-spacing: -.7px;
 }
 
 h1,
@@ -20,7 +21,6 @@ h5,
 h6,
 p {
   color: inherit;
-  letter-spacing: -.7px;
 }
 
 h1 {
@@ -105,6 +105,16 @@ ul {
 img {
   width: 100px;
 }
+small {
+  display: block;
+  color: #777;
+}
+
+.black {
+  color: black;
+}
+
+/* 정리 */
 
 .App.popupon {
   overflow: hidden;

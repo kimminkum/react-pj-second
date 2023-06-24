@@ -46,7 +46,7 @@ input::placeholder {
 .topbar > div > :nth-child(2) .paper {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   font-size: 1.2rem;
 }
@@ -113,7 +113,7 @@ input::placeholder {
 .menu_nav .navList {
   width: 1280px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 10px 20px 20px;
   font-size: 1.05rem;
   line-height: 1.5rem;
   font-weight: 500;
@@ -121,7 +121,6 @@ input::placeholder {
 
 .menu_nav .plus_nav {
   border-top: 1px solid #ccc;
-  margin-top: 10px;
   padding: 10px 0;
   position: absolute;
   top: 100%;
