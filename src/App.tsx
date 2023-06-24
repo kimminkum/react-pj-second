@@ -11,9 +11,9 @@ import Footer from "./routes/Footer";
 import Main from "./routes/Main";
 
 const App: React.FC = () => {
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isPopup, setisPopup] = useState(false);
-  const [plusPopup, setPlusPopup] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isPopup, setisPopup] = useState<boolean>(false);
+  const [plusPopup, setPlusPopup] = useState<boolean>(false);
 
   const offToggle = () => {
     setisPopup(false);
@@ -23,15 +23,15 @@ const App: React.FC = () => {
     setPlusPopup(!plusPopup);
   };
 
-  // useEffect(() => {
-  // const handleResize = () => {
-  //   setWindowWidth(window.innerWidth);
-  // };
-  // window.addEventListener("resize", handleResize);
-  // return () => {
-  //   window.removeEventListener("resize", handleResize);
-  // };
-  // }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -42,7 +42,10 @@ const App: React.FC = () => {
 
           {!isPopup && (
             <Routes>
-              <Route path="/" element={<Main />}></Route>
+              <Route
+                path="/"
+                element={<Main windowWidth={windowWidth} />}
+              ></Route>
               {/* <Route
                 path="/about/*"
                 element={<About windowWidth={windowWidth} />}

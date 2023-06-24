@@ -1,1 +1,54 @@
+.modal_box {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+}
 
+.modals {
+  position: fixed;
+  top: 180px;
+  width: 180px;
+  height: 200px;
+  margin-right: 5%;
+  animation-name: upDown;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.modals_mb {
+  position: fixed;
+  top: 180px;
+  width: 180px;
+  height: 200px;
+  right: 5%;
+  animation-name: upDown;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.modals  img,
+.modals_mb img {
+  width: 100%;
+}
+
+.modals .xBtn,
+.modals_mb .xBtn {
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: -18px;
+  cursor: pointer;
+}
+
+@keyframes upDown {
+  from {
+    top: 180px;
+  }
+  to {
+    top: 200px;
+  }
+}

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "swiper/swiper.min.css";
 
 import { Navigation, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import "../css/Main.css";
 import "swiper/css";
@@ -12,11 +12,19 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-// interface MainProps {
-//   isPopup: boolean;
-// }
+import eventModal from "../img/event.png";
 
-const Main: React.FC = () => {
+interface MainProps {
+  windowWidth: number;
+}
+
+const Main: React.FC<MainProps> = ({ windowWidth }) => {
+  const [modalUp, setModalUp] = useState<boolean>(true);
+
+  const offModal = () => {
+    setModalUp(false);
+  };
+
   return (
     <div>
       <div className="banner">
@@ -51,6 +59,26 @@ const Main: React.FC = () => {
           </div>
         </Swiper>
       </div>
+
+      {windowWidth > 1240 && modalUp && (
+        <div className="modal_box">
+          <div className="modals">
+            <img src={eventModal} alt="" />
+            <span className="xBtn" onClick={offModal}>
+              <FontAwesomeIcon icon={faXmark} />
+            </span>
+          </div>
+        </div>
+      )}
+
+      {windowWidth < 1240 && modalUp && (
+        <div className="modals_mb">
+          <img src={eventModal} alt="" />
+          <span className="xBtn" onClick={offModal}>
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        </div>
+      )}
     </div>
   );
 };
