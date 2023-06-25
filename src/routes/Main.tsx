@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "swiper/swiper.min.css";
-import { Navigation, Scrollbar, A11y, Autoplay, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -14,6 +12,9 @@ import {
   faBoltLightning
 } from "@fortawesome/free-solid-svg-icons";
 
+import "swiper/swiper.min.css";
+import { Navigation, Scrollbar, A11y, Autoplay, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "../css/Main.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -261,9 +262,30 @@ const Main: React.FC<MainProps> = ({ windowWidth }) => {
           </div>
 
           {/* slick 추가 또는 내가 */}
-          <div className="grade-slider">
-            <div className="list">
-              <div className="track"></div>
+          <div className="event flex_center">
+            <div>
+              <a href="#">
+                <img
+                  src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card1.png"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div>
+              <a href="#">
+                <img
+                  src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card2.gif"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div>
+              <a href="#">
+                <img
+                  src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card5.png"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </div>

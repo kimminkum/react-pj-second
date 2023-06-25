@@ -114,6 +114,48 @@ small {
   color: black;
 }
 
+[class^=title-wrap] {
+  position: relative;
+}
+
+[class^=title-wrap] [class^=title-type2] {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  line-height: 20px;
+}
+
+[class^=title-wrap] [class^=title-type] {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28px;
+  color: #111;
+  font-weight: 400;
+}
+
+[class^=btn-wrap] {
+  margin-top: 30px;
+  font-size: 0;
+  text-align: center;
+}
+
+[class^=btn-type] {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.btn-type5 {
+  width: 48.5%;
+  height: 32px;
+  background: #222222;
+  border: 1px solid #222;
+  font-size: 13px;
+  color: #fff;
+  line-height: 32px;
+  border-radius: 25px;
+}
+
 /* 정리 */
 
 .App.popupon {

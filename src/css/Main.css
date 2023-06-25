@@ -102,7 +102,7 @@
   font-size: 1rem;
 }
 
-.delivery {
+article {
   position: relative;
 }
 
@@ -207,4 +207,67 @@
   font-size: 16px;
   line-height: 1.5;
   color: #888;
+}
+
+.grade {
+  padding: 110px 0;
+  background: #f6f6f6;
+}
+
+.grade .inner_box {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.grade .inner_box .grade-info {
+  display: inline-block;
+  width: 360px;
+  vertical-align: top;
+}
+
+.grade .inner_box .grade-info .login {
+  padding-top: 10px;
+}
+
+.grade .inner_box .grade-info .login .title {
+  display: block;
+  text-align: left;
+}
+
+.grade .inner_box .grade-info .login .title .title-type2 {
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.grade .inner_box .grade-info .login .title .title-type2 strong {
+  color: #238ece;
+}
+
+.grade .inner_box .grade-info .login .btn {
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.grade .inner_box .grade-info .login .btn .btn-type5 {
+  width: 103px;
+  height: 43px;
+  line-height: 43px;
+  font-size: 16px;
+  color: white;
+}
+
+.grade .inner_box .event {
+  display: flex;
+  margin-left: 50px;
+}
+
+.grade .inner_box .event img {
+  margin: 0 4px;
+  width: 210px;
+  height: 210px;
 }
