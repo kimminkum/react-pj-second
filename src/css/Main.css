@@ -1,43 +1,21 @@
-.modal_box {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  width: 1240px;
-  height: 100%;
-  margin: 0 auto;
-}
-
 .modals {
   position: fixed;
+  z-index: 7;
   top: 180px;
   width: 180px;
   height: 200px;
-  margin-right: 5%;
+  right: 8%;
   animation-name: upDown;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.modals_mb {
-  position: fixed;
-  top: 180px;
-  width: 180px;
-  height: 200px;
-  right: 5%;
-  animation-name: upDown;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.modals  img,
-.modals_mb img {
+.modals img {
   width: 100%;
 }
 
-.modals .xBtn,
-.modals_mb .xBtn {
+.modals .xBtn {
   position: absolute;
   font-size: 1.5rem;
   margin-left: -18px;
@@ -51,4 +29,182 @@
   to {
     top: 200px;
   }
+}
+
+.mainPage {
+  margin-top: 85px;
+}
+
+.banner .banner_box img {
+  width: 100%;
+
+  height: 100%;
+}
+
+.custom-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  font-size: 5rem;
+}
+
+.custom-navigation .custom-prev {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  color: white;
+  left: 4%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.custom-navigation .custom-next {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  color: white;
+  right: 4%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.swiper-slide {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.slide-controls {
+  margin: 0 auto;
+  width: 80px;
+  height: 30px;
+  position: relative;
+  background: white;
+  bottom: 40px;
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.slide-controls button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15%;
+}
+.custom-pagination {
+  color: black;
+  height: 30px;
+  z-index: 2;
+  line-height: 30px;
+  padding: 0 16px;
+  font-size: 1rem;
+}
+
+.delivery {
+  position: relative;
+}
+
+.delivery .inner_box {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.delivery .inner_box .item_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  height: 280px;
+  padding-top: 56px;
+}
+
+.delivery .inner_box .item_wrap .item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+  vertical-align: top;
+  padding-left: 70px;
+  text-align: left;
+}
+
+.delivery .inner_box .item_wrap .item a {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 54px;
+}
+
+.delivery .inner_box .item_wrap > :nth-child(1) > a {
+  color: #ff143c;
+}
+.delivery .inner_box .item_wrap > :nth-child(1) a .arrow {
+  background: #ff143c;
+}
+.delivery .inner_box .item_wrap > :nth-child(2) > a {
+  color: #1382ff;
+}
+.delivery .inner_box .item_wrap > :nth-child(2) a .arrow {
+  background-color: #1382ff;
+}
+.delivery .inner_box .item_wrap > :nth-child(3) a .arrow {
+  background: #333;
+}
+
+.delivery .inner_box .item_wrap .item a svg {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 34px;
+}
+
+.delivery .inner_box .item_wrap .item a span {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 42px;
+  letter-spacing: -4px;
+  margin-top: 4px;
+}
+
+.delivery .inner_box .item_wrap .item a .arrow {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-left: 9px;
+  border-radius: 100%;
+  border: 0;
+}
+
+.delivery .inner_box .item_wrap .item a .arrow::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-style: solid;
+  border-color: transparent #fff #fff transparent;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  right: 0;
+  margin: 0 auto;
+}
+
+.delivery .inner_box .item_wrap .item p {
+  margin-top: 17px;
+  padding-left: 3px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #888;
 }

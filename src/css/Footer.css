@@ -1,5 +1,5 @@
 .footer {
-  margin: 200px 0 50px;
+  margin: 0 0 50px;
   padding: 60px 20px 60px;
   border-top: 1px solid #ccc;
 }
@@ -55,6 +55,7 @@
 
 .footer > div > :nth-child(2) .lang_drop .lang_container ul li {
   padding: 4px 6px;
+  margin: 0;
 }
 .footer > div > :nth-child(2) .lang_drop {
   top: 100%;
@@ -67,22 +68,22 @@
   background: #00b7ff;
 }
 
-.footer > div > :nth-child(2) ul > :nth-child(2) {
+.footer > div > :nth-child(2) > ul > :nth-child(2) {
   display: flex;
   justify-content: space-around;
   font-size: 1rem;
   margin-bottom: 110px;
 }
-.footer > div > :nth-child(2) ul > :nth-child(2) svg {
+.footer > div > :nth-child(2) > ul > :nth-child(2) svg {
   cursor: pointer;
 }
 
-.footer > div > :nth-child(2) ul > :nth-child(3) {
+.footer > div > :nth-child(2) > ul > :nth-child(3) {
   font-size: 1.4rem;
   color: #888;
 }
 
-.footer > div > :nth-child(2) ul > :nth-child(3) > * {
+.footer > div > :nth-child(2) > ul > :nth-child(3) > * {
   margin-right: 14px;
 }
 
