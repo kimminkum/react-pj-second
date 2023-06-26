@@ -271,3 +271,26 @@ article {
   width: 210px;
   height: 210px;
 }
+
+.banner-area .inner_box {
+  width: 1200px;
+  margin: 40px auto 90px;
+  padding: 0 70px;
+  position: relative;
+}
+
+.banner-area .inner_box .slick-slider .slick-list .slick-track .slick-slide div div img {
+  width: 330px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.slick-arrow.slick-prev {
+  font-size: 3rem;
+  color: #888;
+}
+
+.slick-arrow.slick-next {
+  font-size: 3rem;
+  color: #888;
+}

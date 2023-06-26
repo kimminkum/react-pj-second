@@ -9,6 +9,7 @@ import "./App.css";
 import Header from "./routes/Header";
 import Footer from "./routes/Footer";
 import Main from "./routes/Main";
+import Menu from "./routes/Menu";
 
 const App: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -46,6 +47,7 @@ const App: React.FC = () => {
                 path="/"
                 element={<Main windowWidth={windowWidth} />}
               ></Route>
+              <Route path="/about/*" element={<Menu />}></Route>
               {/* <Route
                 path="/about/*"
                 element={<About windowWidth={windowWidth} />}

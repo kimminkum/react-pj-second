@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +12,10 @@ import {
   faStore,
   faBoltLightning
 } from "@fortawesome/free-solid-svg-icons";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import "swiper/swiper.min.css";
 import { Navigation, Scrollbar, A11y, Autoplay, Pagination } from "swiper";
@@ -70,6 +75,23 @@ const Main: React.FC<MainProps> = ({ windowWidth }) => {
       );
     }
     return null;
+  };
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: (
+      <div className="nextArrow">
+        <FontAwesomeIcon icon={faChevronRight} />
+      </div>
+    ),
+    prevArrow: (
+      <div className="prevArrow">
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </div>
+    )
   };
 
   return (
@@ -261,7 +283,6 @@ const Main: React.FC<MainProps> = ({ windowWidth }) => {
             </div>
           </div>
 
-          {/* slick 추가 또는 내가 */}
           <div className="event flex_center">
             <div>
               <a href="#">
@@ -288,6 +309,41 @@ const Main: React.FC<MainProps> = ({ windowWidth }) => {
               </a>
             </div>
           </div>
+        </div>
+      </article>
+
+      <article className="banner-area">
+        <div className="inner_box">
+          <Slider {...settings}>
+            <div>
+              <div></div>
+              <img
+                src="https://cdn.dominos.co.kr/admin/upload/banner/20220621_Ummq9X16.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <div></div>
+              <img
+                src="https://cdn.dominos.co.kr/admin/upload/banner/20220114_MZKmWb0r.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <div></div>
+              <img
+                src="https://cdn.dominos.co.kr/admin/upload/banner/20230613_xlbUsyep.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <div></div>
+              <img
+                src="https://cdn.dominos.co.kr/admin/upload/banner/20200626_9PFh173Q.jpg"
+                alt=""
+              />
+            </div>
+          </Slider>
         </div>
       </article>
 
