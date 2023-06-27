@@ -1,0 +1,194 @@
+.menuPage {
+  margin-top: 85px;
+}
+
+.inner_box {
+  width: 1200px;
+  margin: 0px auto;
+}
+
+.menuPage .inner_box .menu_title .title {
+  font-size: 2rem;
+  padding: 20px 0;
+  line-height: 2rem;
+  font-weight: 100;
+}
+
+.menuPage .inner_box .menu_title p {
+  padding-top: 2.3rem;
+}
+
+.menuPage .inner_box .menu_tab {
+  padding: 5px 0 12px;
+  border-bottom: 2px solid #333;
+}
+
+.menuPage .inner_box .menu_tab ul li {
+  padding: 5px 0;
+  font-size: 1rem;
+  color: #888;
+  margin: 0 16px;
+  position: relative;
+}
+
+.menuPage .inner_box .menu_tab ul li::after {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #999;
+  position: absolute;
+  right: 125%;
+  top: 55%;
+  transform: translateY(-50%);
+}
+
+.menuPage .inner_box .menu_tab ul > li:first-child {
+  margin: 0 16px 0 0;
+}
+
+.menuPage .inner_box .menu_tab ul > li:first-child::after {
+  content: "";
+  width: 0;
+}
+
+.menuPage .inner_box .menu_tab ul .tab_act {
+  font-weight: 600;
+  color: #333;
+}
+
+.product .inner_box article .pizza_title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.product .inner_box article .grid4 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 30px 0 60px;
+}
+
+.product .inner_box article .grid4 img {
+  width: 100%;
+}
+
+.product .inner_box article .grid4 .pro_menu {
+  margin: 10px 0;
+}
+
+.product .inner_box article .grid4 .img_box {
+  position: relative;
+}
+
+.product .inner_box article .grid4 .img_box .screen {
+  position: absolute;
+  background: url('https://www.citypng.com/public/uploads/preview/hd-full-screen-white-icon-png-11637222048r3lrt1ejhc.png?v=2023051101')
+    no-repeat;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  bottom: 2px;
+  right: 1px;
+  cursor: pointer;
+}
+
+.product .inner_box article .grid4 .txt_box {
+  margin: 16px 0;
+}
+.product .inner_box article .grid4 .txt_box .pro_name {
+  word-break: break-all;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 600;
+}
+
+.product .inner_box article .grid4 .txt_box span {
+  display: inline-block;
+  position: relative;
+}
+
+.product .inner_box article .grid4 .txt_box .new::after {
+  content: "NEW!";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  position: absolute;
+  top: -17px;
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  line-height: 18px;
+}
+.product .inner_box article .grid4 .txt_box .signiture::after {
+  content: "시그니쳐";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  height: 18px;
+  line-height: 18px;
+  position: absolute;
+  top: -17px;
+  text-align: center;
+  width: 42px;
+}
+.product .inner_box article .grid4 .txt_box .best::after {
+  content: "BEST";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  position: absolute;
+  top: -17px;
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  line-height: 18px;
+}
+
+.product .inner_box article .grid4 .txt_box .pro_price {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+.product .inner_box article .grid4 .txt_box .pro_price .priceL {
+  margin-right: 16px;
+  padding: 0 0 0 12px;
+  position: relative;
+}
+.product .inner_box article .grid4 .txt_box .pro_price .priceL::after {
+  content: "L";
+  position: absolute;
+  left: 0;
+  color: red;
+}
+
+.product .inner_box article .grid4 .txt_box .pro_price .priceM {
+  padding: 0 0 0 20px;
+  position: relative;
+}
+.product .inner_box article .grid4 .txt_box .pro_price .priceM::after {
+  content: "M";
+  position: absolute;
+  left: 0;
+  color: red;
+}
+
+.product .inner_box article .grid4 .txt_box div p {
+  color: #888;
+  margin-bottom: 8px;
+}
