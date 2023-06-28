@@ -156,6 +156,63 @@ small {
   border-radius: 25px;
 }
 
+.btn-type4 {
+  width: 48.5%;
+  text-align: center;
+  padding: 16px 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #999;
+}
+.btn-type4.act {
+  background: #ff143c;
+  border: 1px solid #ff143c;
+  color: white;
+}
+
+[type="radio"] {
+  appearance: none;
+  border: max(2px, 0.1em) solid #ccc;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: border 0.5s ease-in-out;
+}
+
+[type="radio"]:checked {
+  border: max(2px, 0.1em) solid #ff143c;
+  position: relative;
+}
+
+[type="radio"]:disabled {
+  color: #999;
+}
+
+.disabled-label {
+  color: #999;
+}
+
+[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff143c;
+  border-radius: 50%;
+}
+
+[type="radio"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  margin: 3px;
+  background: #ff143c;
+}
+
 /* 정리 */
 
 .App.popupon {
@@ -218,4 +275,19 @@ small {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.accordion-header > * {
+  cursor: pointer;
+}
+.accordion-header .pr_date {
+  color: #ff752d;
+}
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.7s ease;
+  max-height: 0;
+}
+.accordion-content.onccordion {
+  max-height: 100%;
 }

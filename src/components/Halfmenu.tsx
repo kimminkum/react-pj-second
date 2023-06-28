@@ -10,28 +10,117 @@ const Halfmenu: React.FC = () => {
   const [leftPizza, setLeftPizza] = useState<string>("");
   const [rightPizza, setRightPizza] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen2, setIsOpen2] = useState<boolean>(false);
+  const [origin, setOrigin] = useState<boolean>(false);
+  const [double, setDouble] = useState<boolean>(false);
   const [selectedValue, setSelectedValue] = useState<string>("첫번째 메뉴");
+  const [selectedValue2, setSelectedValue2] = useState<string>("두번째 메뉴");
+  const [btnClickedL, setBtnClickedL] = useState<boolean>(true);
+  const [btnClickedM, setBtnClickedM] = useState<boolean>(false);
+
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
+  const [douToggle1, setDouToggle1] = useState<boolean>(false);
+  const [douToggle2, setDouToggle2] = useState<boolean>(false);
+  const [douToggle3, setDouToggle3] = useState<boolean>(false);
+  const [douToggle4, setDouToggle4] = useState<boolean>(false);
+
+  const [onbase, setOnBase] = useState<boolean>(false);
   const [topping, setTopping] = useState<number>(0);
 
-  const onSelect = () => setIsOpen(!isOpen);
+  const onSelect = () => {
+    setIsOpen(!isOpen);
+    setIsOpen2(false);
+  };
+  const onSelect2 = () => {
+    setIsOpen2(!isOpen2);
+    setIsOpen(false);
+  };
+  const onSizeClicked = (size: string) => {
+    setBtnClickedL(false);
+    setBtnClickedM(false);
+    if (size === "L") {
+      setBtnClickedL(true);
+    } else if (size === "M") {
+      setBtnClickedM(true);
+    }
+  };
 
   const onOptionClicked = (value: string, index: number) => () => {
     setSelectedValue(value);
     setIsOpen(false);
+    setOrigin(false);
+    setDouble(false);
+    setLeftPizza("");
+    setRightPizza("");
+    setDouToggle1(false);
+    setDouToggle2(false);
+    setDouToggle3(false);
+    setDouToggle4(false);
+    if (index === 9999) {
+      setSelectedValue2("두번째 피자");
+    } else if (index === 0) {
+      setOrigin(true);
+    } else if (index === 1) {
+      setDouble(true);
+    }
+
+    makeData.forEach((data) => {
+      if (data.id === index) {
+        setLeftPizza(data.img);
+      }
+    });
+  };
+
+  const onOptionClicked2 = (value: string, index: number) => () => {
+    setSelectedValue2(value);
+    setIsOpen2(false);
+    setRightPizza("");
+
+    setClickedIndex(index);
+
+    if (index === 9998) {
+      setDouToggle1(false);
+      setDouToggle2(false);
+      setDouToggle3(false);
+      setDouToggle4(false);
+    } else if (selectedValue === "뉴욕 오리진" && index !== 9998) {
+      setDouToggle1(true);
+      setDouToggle2(true);
+      setDouToggle3(true);
+      setDouToggle4(true);
+    } else if (selectedValue === "뉴욕 오리진 더블치즈엣지" && index !== 9998) {
+      setDouToggle1(true);
+      setDouToggle2(false);
+      setDouToggle3(false);
+      setDouToggle4(false);
+    }
+
+    makeData.forEach((data) => {
+      if (data.id === index) {
+        setRightPizza(data.img);
+      }
+    });
   };
 
   return (
     <div className="product">
       <div className="inner_box">
-        <div className="flex">
+        <div className="half flex_sb">
           <div className="left_dou">
-            <img
-              src="https://cdn.dominos.co.kr/domino/pc/images/menu/pizza_pan.png"
-              alt=""
-            />
-            <div className="flex_center">
-              <img src={leftPizza} alt="" />
-              <img src={rightPizza} alt="" />
+            <div>
+              {leftPizza === ""
+                ? false
+                : true && <img src={leftPizza} alt="" />}
+              {rightPizza === ""
+                ? false
+                : true && (
+                    <img
+                      className={clickedIndex === 9998 ? "clicked" : ""}
+                      src={rightPizza}
+                      alt=""
+                    />
+                  )}
             </div>
           </div>
 
@@ -41,7 +130,7 @@ const Halfmenu: React.FC = () => {
               <ul>
                 <li className="lang">
                   <div>
-                    <div className="lang_title flex_center" onClick={onSelect}>
+                    <div className="lang_title flex_sb" onClick={onSelect}>
                       <p>{selectedValue}</p>
                       {!isOpen && <FontAwesomeIcon icon={faChevronDown} />}
                       {isOpen && <FontAwesomeIcon icon={faChevronUp} />}
@@ -50,8 +139,20 @@ const Halfmenu: React.FC = () => {
                       <div className="lang_container">
                         {isOpen && (
                           <ul>
-                            <li onClick={onOptionClicked("KOR", 1)}>KOR</li>
-                            <li onClick={onOptionClicked("ENG", 2)}>ENG</li>
+                            <li onClick={onOptionClicked("첫번째 피자", 9999)}>
+                              첫번째 피자
+                            </li>
+                            <li onClick={onOptionClicked("뉴욕 오리진", 0)}>
+                              뉴욕 오리진
+                            </li>
+                            <li
+                              onClick={onOptionClicked(
+                                "뉴욕 오리진 더블치즈엣지",
+                                1
+                              )}
+                            >
+                              뉴욕 오리진 더블치즈엣지
+                            </li>
                           </ul>
                         )}
                       </div>
@@ -61,17 +162,47 @@ const Halfmenu: React.FC = () => {
 
                 <li className="lang">
                   <div>
-                    <div className="lang_title flex_center" onClick={onSelect}>
-                      <p>{selectedValue}</p>
-                      {!isOpen && <FontAwesomeIcon icon={faChevronDown} />}
-                      {isOpen && <FontAwesomeIcon icon={faChevronUp} />}
+                    <div className="lang_title flex_sb" onClick={onSelect2}>
+                      <p>{selectedValue2}</p>
+                      {!isOpen2 && <FontAwesomeIcon icon={faChevronDown} />}
+                      {isOpen2 && <FontAwesomeIcon icon={faChevronUp} />}
                     </div>
                     <div className="lang_drop">
                       <div className="lang_container">
-                        {isOpen && (
+                        {isOpen2 && origin && (
                           <ul>
-                            <li onClick={onOptionClicked("KOR", 1)}>KOR</li>
-                            <li onClick={onOptionClicked("ENG", 2)}>ENG</li>
+                            <li onClick={onOptionClicked2("두번째 피자", 9998)}>
+                              두번째 피자
+                            </li>
+                            <li onClick={onOptionClicked2("베이컨체더치즈", 2)}>
+                              베이컨체더치즈
+                            </li>
+                            <li onClick={onOptionClicked2("슈퍼디럭스", 3)}>
+                              슈퍼디럭스
+                            </li>
+                          </ul>
+                        )}
+                        {isOpen2 && double && (
+                          <ul>
+                            <li onClick={onOptionClicked2("두번째 피자", 9998)}>
+                              두번째 피자
+                            </li>
+                            <li
+                              onClick={onOptionClicked2(
+                                "리얼불고기 더블치즈엣지",
+                                4
+                              )}
+                            >
+                              리얼불고기 더블치즈엣지
+                            </li>
+                            <li
+                              onClick={onOptionClicked2(
+                                "베이컨체더치즈 더블치즈엣지",
+                                5
+                              )}
+                            >
+                              베이컨체더치즈 더블치즈엣지
+                            </li>
                           </ul>
                         )}
                       </div>
@@ -89,8 +220,18 @@ const Halfmenu: React.FC = () => {
             <div className="select_size">
               <h4>사이즈 선택</h4>
               <div className="flex_sb">
-                <button className="btn1"> L </button>
-                <button className="btn1"> M </button>
+                <button
+                  onClick={() => onSizeClicked("L")}
+                  className={`btn-type4 ${btnClickedL ? "act" : ""}`}
+                >
+                  L
+                </button>
+                <button
+                  onClick={() => onSizeClicked("M")}
+                  className={`btn-type4 ${btnClickedM ? "act" : ""}`}
+                >
+                  M
+                </button>
               </div>
             </div>
 
@@ -102,26 +243,94 @@ const Halfmenu: React.FC = () => {
               </div>
 
               <div>
-                <input type="radio" id="origin" name="dou" value="origin" />
-                <label htmlFor="origin">오리지널 도우</label>
-                <input type="radio" id="napoly" name="dou" value="napoly" />
-                <label htmlFor="napoly">나폴리 도우</label>
-                <input type="radio" id="thin" name="dou" value="thin" />
-                <label htmlFor="thin">씬 도우(기본 갈릭디핑 소스 미제공)</label>
-                <input type="radio" id="super" name="dou" value="super" />
-                <label htmlFor="super">슈퍼시드 화이버 함유 도우</label>
+                <div>
+                  <input
+                    type="radio"
+                    id="origin"
+                    name="dou"
+                    value="origin"
+                    disabled={!douToggle1}
+                    checked={
+                      douToggle1 && !douToggle2 && !douToggle3 && !douToggle4
+                    }
+                  />
+                  <label
+                    htmlFor="origin"
+                    className={!douToggle1 ? "disabled-label" : ""}
+                  >
+                    오리지널 도우
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="napoly"
+                    name="dou"
+                    value="napoly"
+                    disabled={!douToggle2}
+                    checked={
+                      douToggle1 && douToggle2 && !douToggle3 && !douToggle4
+                    }
+                  />
+                  <label
+                    htmlFor="napoly"
+                    className={!douToggle2 ? "disabled-label" : ""}
+                  >
+                    나폴리 도우
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="thin"
+                    name="dou"
+                    value="thin"
+                    disabled={!douToggle3}
+                    checked={
+                      douToggle1 && douToggle2 && douToggle3 && !douToggle4
+                    }
+                  />
+                  <label
+                    htmlFor="thin"
+                    className={!douToggle3 ? "disabled-label" : ""}
+                  >
+                    씬 도우(기본 갈릭디핑 소스 미제공)
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="super"
+                    name="dou"
+                    value="super"
+                    disabled={!douToggle4}
+                    checked={
+                      douToggle1 && douToggle2 && douToggle3 && douToggle4
+                    }
+                  />
+                  <label
+                    htmlFor="super"
+                    className={`expensive ${
+                      !douToggle4 ? "disabled-label" : ""
+                    }`}
+                  >
+                    슈퍼시드 화이버 함유 도우
+                    <span>+3000원</span>
+                  </label>
+                </div>
               </div>
             </div>
 
             <div className="select_topping">
-              <Accordion title="토핑추가" date="ⓘ토핑 알레르기 유발성분">
-                <small>*토핑 추가는 피자 한판 당 5개까지 추가 가능</small>
+              <div className="war_topping orange">ⓘ토핑 알레르기 유발성분</div>
+              <Accordion title="토핑추가" date="">
+                <p>*토핑 추가는 피자 한판 당 5개까지 추가 가능</p>
 
                 <div>
                   <ul className="tabs">
-                    <li className="tabs_main">메인</li>
-                    <li className="tabs_cheeese">치즈</li>
-                    <li className="tabs_after">애프터</li>
+                    <li className={`tabs_main`}>메인</li>
+                    <li className={`tabs_cheeese`}>치즈</li>
+                    <li className={`tabs_after`}>애프터</li>
                   </ul>
                   <div>
                     <img src="" alt="" />

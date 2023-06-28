@@ -1,5 +1,8 @@
 import React, { useState, ReactNode } from "react";
 
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 interface AccordionProps {
   title: string;
   children: ReactNode;
@@ -16,11 +19,19 @@ const Accordion: React.FC<AccordionProps> = ({ title, children, date }) => {
   return (
     <div className="accordion">
       <div className="accordion-header" onClick={toggleAccordion}>
-        <p className="pr_title">{title}</p>
+        <h4 className="pr_title">
+          {title}
+          {!isOpen && <FontAwesomeIcon icon={faChevronDown} />}
+          {isOpen && <FontAwesomeIcon icon={faChevronUp} />}
+        </h4>
 
         <p className="pr_date">{date}</p>
       </div>
-      {isOpen && <div className="accordion-content">{children}</div>}
+      {isOpen && (
+        <div className={`accordion-content ${isOpen ? "onccordion" : ""}`}>
+          {children}
+        </div>
+      )}
     </div>
   );
 };
