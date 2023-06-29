@@ -27,14 +27,6 @@ const Menu: React.FC = () => {
     content = <Oncemenu />;
   } else if (selectedTab === "harf_half") {
     content = <Halfmenu />;
-  } else if (selectedTab === "side_dish") {
-    content = <Sidemenu />;
-  } else if (selectedTab === "best_set") {
-    content = <Bestmenu />;
-  } else if (selectedTab === "mykitchin") {
-    content = <Mymenu />;
-  } else if (selectedTab === "drink_ect") {
-    content = <Drinkmenu />;
   }
 
   return (
@@ -75,7 +67,10 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "side_dish" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => handleTabClick("side_dish", "사이드디쉬")}
+                  onClick={() => {
+                    alert("준비중입니다.");
+                  }}
+                  style={{ cursor: "default" }}
                 >
                   사이드디쉬
                 </Link>
@@ -83,7 +78,10 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "best_set" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => handleTabClick("best_set", "인기세트메뉴")}
+                  onClick={() => {
+                    alert("준비중입니다.");
+                  }}
+                  style={{ cursor: "default" }}
                 >
                   인기세트메뉴
                 </Link>
@@ -91,7 +89,10 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "mykitchin" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => handleTabClick("mykitchin", "마이키친")}
+                  onClick={() => {
+                    alert("준비중입니다.");
+                  }}
+                  style={{ cursor: "default" }}
                 >
                   마이키친
                 </Link>
@@ -99,7 +100,10 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "drink_ect" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => handleTabClick("drink_ect", "음료&기타")}
+                  onClick={() => {
+                    alert("준비중입니다.");
+                  }}
+                  style={{ cursor: "default" }}
                 >
                   음료&기타
                 </Link>

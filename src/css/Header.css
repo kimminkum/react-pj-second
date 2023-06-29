@@ -61,6 +61,7 @@ input::placeholder {
 .topbar > div > :nth-child(3) > ul > .lang {
   padding: 2px;
   line-height: 22px;
+  cursor: pointer;
 }
 .topbar > div > :nth-child(3) > ul > .lang > div {
   border-radius: 20px;
@@ -143,6 +144,9 @@ input::placeholder {
 
 .menu_nav .plus_nav > div > :nth-child(1) ul {
   width: 240px;
+}
+.menu_nav .plus_nav > div > :nth-child(1) ul a {
+  cursor: default;
 }
 
 .menu_nav .plus_nav > div > :nth-child(2) {

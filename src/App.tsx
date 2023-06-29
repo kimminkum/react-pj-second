@@ -13,7 +13,7 @@ import Menu from "./routes/Menu";
 
 const App: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isPopup, setisPopup] = useState<boolean>(false);
+  const [isPopup, setisPopup] = useState<boolean>(true);
   const [plusPopup, setPlusPopup] = useState<boolean>(false);
 
   const offToggle = () => {
@@ -75,7 +75,7 @@ const App: React.FC = () => {
             <div className="modal">
               <div>
                 <img
-                  src="https://cdn.dominos.co.kr/renewal2018/w/img/img_gate_230620.jpg"
+                  src="https://cdn.dominos.co.kr/renewal2018/w/img/img_gate_230629.jpg"
                   alt=""
                 />
               </div>
@@ -83,7 +83,13 @@ const App: React.FC = () => {
               <div>
                 <div onClick={offToggle}></div>
 
-                <div>
+                <div
+                  onClick={() => {
+                    alert("준비중입니다.");
+                  }}
+                ></div>
+
+                {/* <div>
                   <div>
                     <iframe
                       width="560"
@@ -93,7 +99,7 @@ const App: React.FC = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     ></iframe>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           )}

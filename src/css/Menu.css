@@ -432,20 +432,24 @@
   right: 0;
 }
 
-.half .select_box .select_topping .accordion-content p {
+.half .select_box .select_topping .accordion-content > p {
   font-size: .85rem;
   color: #888;
 }
 
-.half .select_box .select_topping .accordion-content > div {
+.half .select_box .select_topping .accordion-content > div > div,
+.half .select_box .select_side > div,
+.half .drink_ect > div {
   margin-top: 20px;
 }
 
-.half .select_box .select_topping .accordion-content > div ul {
+.half .select_box .select_topping .accordion-content > div ul,
+.half .select_box .select_side > div ul {
   display: flex;
 }
 
-.half .select_box .select_topping .accordion-content > div ul li {
+.half .select_box .select_topping .accordion-content > div ul li,
+.half .select_box .select_side > div ul li {
   width: 100%;
   text-align: center;
   padding: 18px;
@@ -457,10 +461,109 @@
   cursor: pointer;
 }
 
-.half .select_box .select_topping .accordion-content > div > div {
+.half .select_box .select_topping .accordion-content > div > div > div,
+.half .select_box .select_side > div > div,
+.half .drink_ect > div {
   border: 1px solid #ddd;
   border-collapse: collapse;
   padding: 12px 16px;
   height: 380px;
   overflow-y: scroll;
+}
+
+.select_topping .accordion-content .tabs > li.act,
+.half .select_box .select_side > div ul li.act {
+  background: #333;
+  color: white;
+  font-weight: 600;
+}
+
+.select_topping .accordion-content > div > div > div > div,
+.half .select_box .select_side > div > div > div,
+.half .drink_ect > div > div > div {
+  display: flex;
+  margin-bottom: 8px;
+  padding: 6px 0px;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.select_topping .accordion-content > div > div > div > div > div,
+.half .select_box .select_side > div > div > div > div {
+  align-items: center;
+  vertical-align: middle;
+}
+.select_topping .accordion-content .flex_sb .txt_box,
+.half .select_box .select_side .flex_sb .txt_box,
+.half .drink_ect > div .txt_box {
+  margin-left: 20px;
+}
+
+.select_topping .accordion-content .flex_sb .txt_box p,
+.half .select_box .select_side .flex_sb .txt_box p,
+.half .drink_ect .txt_box p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.select_topping .accordion-content .flex_sb .txt_box p:nth-child(2),
+.half .select_box .select_side .flex_sb .txt_box p:nth-child(2),
+.half .drink_ect .txt_box p:nth-child(2) {
+  font-weight: 600;
+}
+
+.half .select_box .select_side .flex_sb .txt_box > div p:first-child {
+  margin-right: 8px;
+  text-decoration: line-through;
+  color: #888;
+}
+
+.select_topping .accordion-content .btn_box,
+.half .select_box .select_side .btn_box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  width: 170px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  padding: 20px 0;
+}
+.half .select_box .drink_ect > div > div {
+  position: relative;
+}
+.half .select_box .drink_ect .btn_box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  width: 170px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  height: 50px;
+  transform: translateY(65%);
+}
+
+.select_topping .accordion-content .btn_box button,
+.half .select_box .select_side .btn_box button,
+.half .drink_ect .btn_box button {
+  font-size: 0.9rem;
+}
+
+.half .select_box .select_number .btn_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 36px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+}
+
+.half .select_box .select_number .btn_box > button {
+  font-size: .9rem;
+  color: #333;
+}
+
+.half .select_box .select_number .btn_box > :nth-child(2) {
+  font-size: 1.2rem;
+  color: #333;
 }

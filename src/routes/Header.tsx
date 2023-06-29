@@ -86,10 +86,20 @@ const Header: React.FC<HeaderProps> = ({ plusToggle }) => {
 
           <div>
             <ul className="flex_end">
-              <a href="#">
+              <a
+                href="#"
+                onClick={() => {
+                  alert("준비중입니다.");
+                }}
+              >
                 <li>로그인</li>
               </a>
-              <a href="#">
+              <a
+                href="#"
+                onClick={() => {
+                  alert("준비중입니다.");
+                }}
+              >
                 <li>회원가입</li>
               </a>
               <li className="lang">
@@ -121,22 +131,47 @@ const Header: React.FC<HeaderProps> = ({ plusToggle }) => {
           <li>
             <Link to="/menu/pizza">메뉴</Link>
           </li>
-          <li>
-            <Link to="/e-coupon">e-쿠폰</Link>
+          <li
+            onClick={() => {
+              alert("준비중입니다.");
+            }}
+            style={{ cursor: "default" }}
+          >
+            e-쿠폰
           </li>
-          <li>
-            <Link to="/gift">상품권 선물</Link>
+          <li
+            onClick={() => {
+              alert("준비중입니다.");
+            }}
+            style={{ cursor: "default" }}
+          >
+            상품권 선물
           </li>
-          <li>
-            <Link to="/event">이벤트·제휴</Link>
+          <li
+            onClick={() => {
+              alert("준비중입니다.");
+            }}
+            style={{ cursor: "default" }}
+          >
+            이벤트·제휴
           </li>
-          <li>
-            <Link to="/find">매장검색</Link>
+          <li
+            onClick={() => {
+              alert("준비중입니다.");
+            }}
+            style={{ cursor: "default" }}
+          >
+            매장검색
           </li>
-          <li>
-            <Link to="/franchisee">가맹점 모집</Link>
+          <li
+            onClick={() => {
+              alert("준비중입니다.");
+            }}
+            style={{ cursor: "default" }}
+          >
+            가맹점 모집
           </li>
-          <li onClick={onPlusSelect}>
+          <li onClick={onPlusSelect} style={{ cursor: "pointer" }}>
             더보기
             {!plusOpen && <FontAwesomeIcon icon={faChevronDown} />}
             {plusOpen && <FontAwesomeIcon icon={faChevronUp} />}
