@@ -1,7 +1,7 @@
 {
   "name": "react-pj-second",
   "version": "0.1.0",
-  "homepage": "http://kimminkum.github.io/react-pj-second/",
+  "homepage": "https://kimminkum.github.io/react-pj-second/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
@@ -34,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "clean": "gh-pages-clean"
   },
   "eslintConfig": {
     "extends": [
