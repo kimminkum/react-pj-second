@@ -27,6 +27,8 @@ const Menu: React.FC = () => {
     content = <Oncemenu />;
   } else if (selectedTab === "harf_half") {
     content = <Halfmenu />;
+  } else if (selectedTab === "side_dish") {
+    content = <Sidemenu />;
   }
 
   return (
@@ -67,10 +69,7 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "side_dish" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => {
-                    alert("준비중입니다.");
-                  }}
-                  style={{ cursor: "default" }}
+                  onClick={() => handleTabClick("side_dish", "사이드디쉬")}
                 >
                   사이드디쉬
                 </Link>

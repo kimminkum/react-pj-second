@@ -567,3 +567,91 @@
   font-size: 1.2rem;
   color: #333;
 }
+
+.product .inner_box article .grid4 .txt_box .new::after {
+  content: "NEW!";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  position: relative;
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  top: -3px;
+  line-height: 18px;
+}
+.product .inner_box .side_box article .grid4 .txt_box .signiture::after {
+  content: "시그니쳐";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  height: 18px;
+  line-height: 18px;
+  position: relative;
+  text-align: center;
+  width: 42px;
+  top: -3px;
+}
+.product .inner_box .side_box article .grid4 .txt_box .best::after {
+  content: "BEST";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  position: relative;
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  line-height: 18px;
+  top: -3px;
+}
+
+.product .inner_box .side_box article .grid4 .txt_box .discount::after {
+  content: "25%할인";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  height: 18px;
+  line-height: 18px;
+  position: relative;
+  text-align: center;
+  width: 42px;
+  top: -3px;
+}
+
+.product .inner_box .side_box article .grid4 .txt_box .limit::after {
+  content: "기간한정";
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .55rem;
+  height: 18px;
+  line-height: 18px;
+  position: relative;
+  text-align: center;
+  width: 42px;
+  top: -3px;
+}
