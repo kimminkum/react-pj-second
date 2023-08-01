@@ -36,24 +36,14 @@ const Header: React.FC<HeaderProps> = ({ plusToggle }) => {
 
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const shouldDownHeader = prevScrollPos < currentScrollPos;
-      const shouldUpHeader = prevScrollPos > currentScrollPos;
       const isTop = currentScrollPos === 0;
-
-      if (prevScrollPos < currentScrollPos) {
-        setHideHeader(shouldDownHeader);
-      } else if (prevScrollPos > currentScrollPos) {
-        setHideHeader(shouldUpHeader);
-      }
-
-      prevScrollPos = currentScrollPos;
 
       if (isTop) {
         setHideHeader(false);
-        document.querySelector(".topbar")?.classList.add("show");
       } else {
-        document.querySelector(".topbar")?.classList.remove("show");
+        setHideHeader(true);
       }
+      prevScrollPos = currentScrollPos;
     };
 
     window.addEventListener("scroll", handleScroll);

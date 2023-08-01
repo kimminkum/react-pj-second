@@ -31,6 +31,8 @@ const Menu: React.FC = () => {
     content = <Sidemenu />;
   } else if (selectedTab === "best_set") {
     content = <Bestmenu />;
+  } else if (selectedTab === "mymenu") {
+    content = <Mymenu />;
   }
 
   return (
@@ -87,10 +89,7 @@ const Menu: React.FC = () => {
               <li className={selectedTab === "mykitchin" ? "tab_act" : ""}>
                 <Link
                   to="#"
-                  onClick={() => {
-                    alert("준비중입니다.");
-                  }}
-                  style={{ cursor: "default" }}
+                  onClick={() => handleTabClick("mymenu", "마이키친")}
                 >
                   마이키친
                 </Link>

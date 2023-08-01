@@ -337,6 +337,31 @@
   height: auto;
 }
 
+.product .inner_box .half .left_dou > div.dou:nth-child(1) {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: url('https://cdn.dominos.co.kr/admin/upload/goods/mykitchen_Main.jpg')
+    no-repeat;
+  height: 575px;
+  padding: 112px 0;
+  margin-bottom: 50px;
+  background-size: contain;
+  width: 100%;
+  height: 575px;
+}
+
+.product .inner_box .half .left_dou > p {
+  position: sticky;
+  top: 585px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  color: #666;
+}
+
 .product .inner_box .half .left_dou > div:nth-child(1) {
   position: sticky;
   top: 0;
