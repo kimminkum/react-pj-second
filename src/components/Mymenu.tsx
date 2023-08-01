@@ -244,7 +244,7 @@ const Mymenu: React.FC = () => {
                 <p className="orange">ⓘ도우의 특징</p>
               </div>
 
-              <div>
+              <div className="my_dou">
                 <div>
                   <input
                     type="radio"
