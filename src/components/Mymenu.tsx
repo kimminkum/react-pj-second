@@ -241,26 +241,15 @@ const Mymenu: React.FC = () => {
               <div className="flex_sb">
                 <h4>도우 선택</h4>
 
-                <p className="orange">ⓘ도우의 특징</p>
+                <p className="orange">ⓘ도우/엣지의 특징</p>
               </div>
 
               <div className="my_dou">
                 <div>
-                  <input
-                    type="radio"
-                    id="origin"
-                    name="dou"
-                    value="origin"
-                    disabled={!douToggle1}
-                    checked={
-                      douToggle1 && !douToggle2 && !douToggle3 && !douToggle4
-                    }
-                  />
-                  <label
-                    htmlFor="origin"
-                    className={!douToggle1 ? "disabled-label" : ""}
-                  >
-                    오리지널 도우
+                  <input type="radio" id="origin" name="dou" value="origin" />
+                  <label htmlFor="origin">
+                    오리지널 도우 (더블 치즈엣지)
+                    <span>+5,000원</span>
                   </label>
                 </div>
                 <div>
@@ -269,56 +258,17 @@ const Mymenu: React.FC = () => {
                     id="napoly"
                     name="dou"
                     value="napoly"
-                    disabled={!douToggle2}
-                    checked={
-                      douToggle1 && douToggle2 && !douToggle3 && !douToggle4
-                    }
+                    checked
                   />
-                  <label
-                    htmlFor="napoly"
-                    className={!douToggle2 ? "disabled-label" : ""}
-                  >
-                    나폴리 도우
-                  </label>
+                  <label htmlFor="napoly">오리지널 도우 (기본)</label>
                 </div>
                 <div>
-                  <input
-                    type="radio"
-                    id="thin"
-                    name="dou"
-                    value="thin"
-                    disabled={!douToggle3}
-                    checked={
-                      douToggle1 && douToggle2 && douToggle3 && !douToggle4
-                    }
-                  />
-                  <label
-                    htmlFor="thin"
-                    className={!douToggle3 ? "disabled-label" : ""}
-                  >
-                    씬 도우(기본 갈릭디핑 소스 미제공)
-                  </label>
+                  <input type="radio" id="thin" name="dou" value="thin" />
+                  <label htmlFor="thin">나폴리 도우</label>
                 </div>
                 <div>
-                  <input
-                    type="radio"
-                    id="super"
-                    name="dou"
-                    value="super"
-                    disabled={!douToggle4}
-                    checked={
-                      douToggle1 && douToggle2 && douToggle3 && douToggle4
-                    }
-                  />
-                  <label
-                    htmlFor="super"
-                    className={`expensive ${
-                      !douToggle4 ? "disabled-label" : ""
-                    }`}
-                  >
-                    슈퍼시드 화이버 함유 도우
-                    <span>+3000원</span>
-                  </label>
+                  <input type="radio" id="super" name="dou" value="super" />
+                  <label htmlFor="super">씬 도우</label>
                 </div>
               </div>
             </div>

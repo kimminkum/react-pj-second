@@ -478,11 +478,31 @@
   position: relative;
 }
 
+.half .select_box .select_dou > div.my_dou:nth-child(2) > div {
+  margin-bottom: 12px;
+  align-items: center;
+  position: relative;
+}
+
 .half .select_box .select_dou > :nth-child(2) > div label {
   font-size: 1rem;
   margin-left: 8px;
   top: -4px;
   width: 100%;
+}
+
+.half .select_box .select_dou > div.my_dou:nth-child(2) > div label {
+  font-size: 1rem;
+  margin-left: 8px;
+  position: absolute;
+  top: 0px;
+  width: 95%;
+}
+.half .select_box .select_dou > div.my_dou:nth-child(2) > div span {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  transform: translateY(-25%);
 }
 
 .half .select_box .select_dou > :nth-child(2) > div span {
