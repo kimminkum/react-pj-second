@@ -5,13 +5,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import styled from "styled-components";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "./routes/Header";
 import Footer from "./routes/Footer";
 import Main from "./routes/Main";
 import Menu from "./routes/Menu";
 
+import eventModal from "./img/event.png";
+
 const App: React.FC = () => {
+  const [modalUp, setModalUp] = useState<boolean>(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isPopup, setisPopup] = useState<boolean>(true);
   const [plusPopup, setPlusPopup] = useState<boolean>(false);
@@ -22,6 +27,10 @@ const App: React.FC = () => {
 
   const plusToggle = () => {
     setPlusPopup(!plusPopup);
+  };
+
+  const offModal = () => {
+    setModalUp(false);
   };
 
   useEffect(() => {
@@ -107,6 +116,15 @@ const App: React.FC = () => {
           {!isPopup && <Footer />}
         </BrowserRouter>
       </div>
+
+      {modalUp && (
+        <div className="modals">
+          <img src={eventModal} alt="" />
+          <span className="xBtn" onClick={offModal}>
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        </div>
+      )}
     </>
   );
 };

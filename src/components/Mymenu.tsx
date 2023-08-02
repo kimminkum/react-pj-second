@@ -30,16 +30,14 @@ const Mymenu: React.FC = () => {
   const [selectedValue2, setSelectedValue2] = useState<string>("두번째 메뉴");
   const [btnClickedL, setBtnClickedL] = useState<boolean>(true);
   const [btnClickedM, setBtnClickedM] = useState<boolean>(false);
+  const [btnClickedtomato, setBtnClickedtomato] = useState<boolean>(true);
+  const [btnClickedboolgogi, setBtnClickedboolgogi] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<number>(0);
 
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const [tabsIndex, setTabsIndex] = useState<number>(0);
   const [tabsSideIndex, setTabsSideIndex] = useState<number>(0);
 
-  const [douToggle1, setDouToggle1] = useState<boolean>(false);
-  const [douToggle2, setDouToggle2] = useState<boolean>(false);
-  const [douToggle3, setDouToggle3] = useState<boolean>(false);
-  const [douToggle4, setDouToggle4] = useState<boolean>(false);
   const [reactToppingData, setReactToppingData] = useState([...toppingData]);
   const [reactToppingCheeseData, setReactToppingCheeseData] = useState([
     ...toppingCheese
@@ -55,14 +53,6 @@ const Mymenu: React.FC = () => {
   const [firstPizza, setFirstPizza] = useState<boolean>(false);
   const [secondPizza, setSecondPizza] = useState<boolean>(false);
 
-  const onSelect = () => {
-    setIsOpen(!isOpen);
-    setIsOpen2(false);
-  };
-  const onSelect2 = () => {
-    setIsOpen2(!isOpen2);
-    setIsOpen(false);
-  };
   const onSizeClicked = (size: string) => {
     setBtnClickedL(false);
     setBtnClickedM(false);
@@ -70,6 +60,16 @@ const Mymenu: React.FC = () => {
       setBtnClickedL(true);
     } else if (size === "M") {
       setBtnClickedM(true);
+    }
+  };
+
+  const onSorceClicked = (sorce: string) => {
+    setBtnClickedtomato(false);
+    setBtnClickedboolgogi(false);
+    if (sorce === "tomato") {
+      setBtnClickedtomato(true);
+    } else if (sorce === "boolgogi") {
+      setBtnClickedboolgogi(true);
     }
   };
 
@@ -95,10 +95,6 @@ const Mymenu: React.FC = () => {
     setDouble(false);
     setLeftPizza("");
     setRightPizza("");
-    setDouToggle1(false);
-    setDouToggle2(false);
-    setDouToggle3(false);
-    setDouToggle4(false);
     setMaxTopping(0);
     setSecondPizza(false);
     const updatedToppingData = reactToppingData.map((item: any) => ({
@@ -163,23 +159,11 @@ const Mymenu: React.FC = () => {
     setReactToppingCheeseData(updatedToppingCheeseData);
     setReactToppingAfterData(updatedToppingAfterData);
     if (index === 9998) {
-      setDouToggle1(false);
-      setDouToggle2(false);
-      setDouToggle3(false);
-      setDouToggle4(false);
       setSecondPizza(false);
     } else if (selectedValue === "뉴욕 오리진" && index !== 9998) {
-      setDouToggle1(true);
-      setDouToggle2(true);
-      setDouToggle3(true);
-      setDouToggle4(true);
       setSecondPizza(true);
       setQuantity(1);
     } else if (selectedValue === "뉴욕 오리진 더블치즈엣지" && index !== 9998) {
-      setDouToggle1(true);
-      setDouToggle2(false);
-      setDouToggle3(false);
-      setDouToggle4(false);
       setSecondPizza(true);
       setQuantity(1);
     }
@@ -224,13 +208,13 @@ const Mymenu: React.FC = () => {
               <div className="flex_sb">
                 <button
                   onClick={() => onSizeClicked("L")}
-                  className={`btn-type4 ${btnClickedL ? "act" : ""}`}
+                  className={`btn-type4 ${btnClickedtomato ? "act" : ""}`}
                 >
                   L
                 </button>
                 <button
                   onClick={() => onSizeClicked("M")}
-                  className={`btn-type4 ${btnClickedM ? "act" : ""}`}
+                  className={`btn-type4 ${btnClickedboolgogi ? "act" : ""}`}
                 >
                   M
                 </button>
@@ -273,268 +257,278 @@ const Mymenu: React.FC = () => {
               </div>
             </div>
 
-            <div
-              className="select_topping"
-              onClick={() => pizzaSelector(firstPizza, secondPizza)}
-            >
+            <div className="select_size">
+              <h4>소스 선택</h4>
+              <div className="flex_sb">
+                <button
+                  onClick={() => onSorceClicked("tomato")}
+                  className={`btn-type4 ${btnClickedL ? "act" : ""}`}
+                >
+                  토마토 소스
+                </button>
+                <button
+                  onClick={() => onSorceClicked("boolgogi")}
+                  className={`btn-type4 ${btnClickedM ? "act" : ""}`}
+                >
+                  불고기 소스
+                </button>
+              </div>
+            </div>
+
+            <div className="select_topping">
               <div className="war_topping orange">ⓘ토핑 알레르기 유발성분</div>
-              <Accordion title="토핑추가" date="">
-                {firstPizza && secondPizza && (
+              <div className="my_topping">
+                <div>
+                  <p>*토핑추가는 피자 한판 당 7개까지 추가 가능</p>
+                  <p>
+                    *기본으로 모차렐라 치즈가 추가됩니다.(슈퍼슈프림 피자 정량
+                    기준)
+                  </p>
                   <div>
-                    <p>*토핑 추가는 피자 한판 당 5개까지 추가 가능</p>
+                    <ul className="tabs">
+                      <li
+                        className={`tabs_main ${tabsIndex === 0 ? "act" : ""}`}
+                        onClick={() => tabsClick(0)}
+                      >
+                        메인
+                      </li>
+                      <li
+                        className={`tabs_cheeese ${
+                          tabsIndex === 1 ? "act" : ""
+                        }`}
+                        onClick={() => tabsClick(1)}
+                      >
+                        치즈
+                      </li>
+                      <li
+                        className={`tabs_after ${tabsIndex === 2 ? "act" : ""}`}
+                        onClick={() => tabsClick(2)}
+                      >
+                        애프터
+                      </li>
+                    </ul>
 
-                    <div>
-                      <ul className="tabs">
-                        <li
-                          className={`tabs_main ${
-                            tabsIndex === 0 ? "act" : ""
-                          }`}
-                          onClick={() => tabsClick(0)}
-                        >
-                          메인
-                        </li>
-                        <li
-                          className={`tabs_cheeese ${
-                            tabsIndex === 1 ? "act" : ""
-                          }`}
-                          onClick={() => tabsClick(1)}
-                        >
-                          치즈
-                        </li>
-                        <li
-                          className={`tabs_after ${
-                            tabsIndex === 2 ? "act" : ""
-                          }`}
-                          onClick={() => tabsClick(2)}
-                        >
-                          애프터
-                        </li>
-                      </ul>
-
-                      {firstPizza && secondPizza && tabsIndex === 0 && (
-                        <div>
-                          {reactToppingData.map((item: any) => (
-                            <div className="flex_sb" key={item.id}>
-                              <div className="flex">
-                                <img src={item.img} alt="" />
-                                <div className="txt_box">
-                                  <p>{item.name}</p>
-                                  <p>{item.price.toLocaleString()}</p>
-                                </div>
-                              </div>
-                              <div className="btn_box">
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping < 5) {
-                                      const updatedNums = item.nums + 1;
-                                      const updatedToppingData = [
-                                        ...reactToppingData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingData[itemIndex] =
-                                        updatedItem;
-
-                                      setReactToppingData(updatedToppingData);
-                                      setMaxTopping(maxTopping + 1);
-                                    } else if (maxTopping >= 5) {
-                                      alert("토핑의 최대 갯수는 5개 입니다.");
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faPlus} />
-                                </button>
-                                <button>{item.nums}</button>
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping > 0) {
-                                      const updatedNums = item.nums - 1;
-                                      const updatedToppingData = [
-                                        ...reactToppingData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingData[itemIndex] =
-                                        updatedItem;
-
-                                      setReactToppingData(updatedToppingData);
-                                      setMaxTopping(maxTopping - 1);
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faMinus} />
-                                </button>
+                    {tabsIndex === 0 && (
+                      <div>
+                        {reactToppingData.map((item: any) => (
+                          <div className="flex_sb" key={item.id}>
+                            <div className="flex">
+                              <img src={item.img} alt="" />
+                              <div className="txt_box">
+                                <p>{item.name}</p>
+                                <p>{item.price.toLocaleString()}</p>
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {firstPizza && secondPizza && tabsIndex === 1 && (
-                        <div>
-                          {reactToppingCheeseData.map((item: any) => (
-                            <div className="flex_sb" key={item.id}>
-                              <div className="flex">
-                                <img src={item.img} alt="" />
-                                <div className="txt_box">
-                                  <p>{item.name}</p>
-                                  <p>{item.price.toLocaleString()}</p>
-                                </div>
-                              </div>
-                              <div className="btn_box">
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping < 5) {
-                                      const updatedNums = item.nums + 1;
-                                      const updatedToppingCheeseData = [
-                                        ...reactToppingCheeseData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingCheeseData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingCheeseData[itemIndex] =
-                                        updatedItem;
-
-                                      setReactToppingCheeseData(
-                                        updatedToppingCheeseData
+                            <div className="btn_box">
+                              <button
+                                onClick={() => {
+                                  if (maxTopping < 7) {
+                                    const updatedNums = item.nums + 1;
+                                    const updatedToppingData = [
+                                      ...reactToppingData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
                                       );
-                                      setMaxTopping(maxTopping + 1);
-                                    } else if (maxTopping >= 5) {
-                                      alert("토핑의 최대 갯수는 5개 입니다.");
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faPlus} />
-                                </button>
-                                <button>{item.nums}</button>
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping > 0) {
-                                      const updatedNums = item.nums - 1;
-                                      const updatedToppingCheeseData = [
-                                        ...reactToppingCheeseData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingCheeseData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingCheeseData[itemIndex] =
-                                        updatedItem;
+                                    updatedToppingData[itemIndex] = updatedItem;
 
-                                      setReactToppingCheeseData(
-                                        updatedToppingCheeseData
+                                    setReactToppingData(updatedToppingData);
+                                    setMaxTopping(maxTopping + 1);
+                                  } else if (maxTopping >= 7) {
+                                    alert("토핑의 최대 갯수는 7개 입니다.");
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faPlus} />
+                              </button>
+                              <button>{item.nums}</button>
+                              <button
+                                onClick={() => {
+                                  if (maxTopping > 0) {
+                                    const updatedNums = item.nums - 1;
+                                    const updatedToppingData = [
+                                      ...reactToppingData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
                                       );
-                                      setMaxTopping(maxTopping - 1);
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faMinus} />
-                                </button>
+                                    updatedToppingData[itemIndex] = updatedItem;
+
+                                    setReactToppingData(updatedToppingData);
+                                    setMaxTopping(maxTopping - 1);
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faMinus} />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {tabsIndex === 1 && (
+                      <div>
+                        {reactToppingCheeseData.map((item: any) => (
+                          <div className="flex_sb" key={item.id}>
+                            <div className="flex">
+                              <img src={item.img} alt="" />
+                              <div className="txt_box">
+                                <p>{item.name}</p>
+                                <p>{item.price.toLocaleString()}</p>
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {firstPizza && secondPizza && tabsIndex === 2 && (
-                        <div>
-                          {reactToppingAfterData.map((item: any) => (
-                            <div className="flex_sb" key={item.id}>
-                              <div className="flex">
-                                <img src={item.img} alt="" />
-                                <div className="txt_box">
-                                  <p>{item.name}</p>
-                                  <p>{item.price.toLocaleString()}</p>
-                                </div>
-                              </div>
-                              <div className="btn_box">
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping < 5) {
-                                      const updatedNums = item.nums + 1;
-                                      const updatedToppingAfterData = [
-                                        ...reactToppingAfterData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingAfterData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingAfterData[itemIndex] =
-                                        updatedItem;
-
-                                      setReactToppingAfterData(
-                                        updatedToppingAfterData
+                            <div className="btn_box">
+                              <button
+                                onClick={() => {
+                                  if (maxTopping < 7) {
+                                    const updatedNums = item.nums + 1;
+                                    const updatedToppingCheeseData = [
+                                      ...reactToppingCheeseData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingCheeseData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
                                       );
-                                      setMaxTopping(maxTopping + 1);
-                                    } else if (maxTopping >= 5) {
-                                      alert("토핑의 최대 갯수는 5개 입니다.");
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faPlus} />
-                                </button>
-                                <button>{item.nums}</button>
-                                <button
-                                  onClick={() => {
-                                    if (maxTopping > 0) {
-                                      const updatedNums = item.nums - 1;
-                                      const updatedToppingAfterData = [
-                                        ...reactToppingAfterData
-                                      ];
-                                      const updatedItem = {
-                                        ...item,
-                                        nums: updatedNums
-                                      };
-                                      const itemIndex =
-                                        updatedToppingAfterData.findIndex(
-                                          (dataItem) => dataItem.id === item.id
-                                        );
-                                      updatedToppingAfterData[itemIndex] =
-                                        updatedItem;
+                                    updatedToppingCheeseData[itemIndex] =
+                                      updatedItem;
 
-                                      setReactToppingAfterData(
-                                        updatedToppingAfterData
+                                    setReactToppingCheeseData(
+                                      updatedToppingCheeseData
+                                    );
+                                    setMaxTopping(maxTopping + 1);
+                                  } else if (maxTopping >= 7) {
+                                    alert("토핑의 최대 갯수는 7개 입니다.");
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faPlus} />
+                              </button>
+                              <button>{item.nums}</button>
+                              <button
+                                onClick={() => {
+                                  if (maxTopping > 0) {
+                                    const updatedNums = item.nums - 1;
+                                    const updatedToppingCheeseData = [
+                                      ...reactToppingCheeseData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingCheeseData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
                                       );
-                                      setMaxTopping(maxTopping - 1);
-                                    }
-                                  }}
-                                >
-                                  <FontAwesomeIcon icon={faMinus} />
-                                </button>
+                                    updatedToppingCheeseData[itemIndex] =
+                                      updatedItem;
+
+                                    setReactToppingCheeseData(
+                                      updatedToppingCheeseData
+                                    );
+                                    setMaxTopping(maxTopping - 1);
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faMinus} />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {tabsIndex === 2 && (
+                      <div>
+                        {reactToppingAfterData.map((item: any) => (
+                          <div className="flex_sb" key={item.id}>
+                            <div className="flex">
+                              <img src={item.img} alt="" />
+                              <div className="txt_box">
+                                <p>{item.name}</p>
+                                <p>{item.price.toLocaleString()}</p>
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                            <div className="btn_box">
+                              <button
+                                onClick={() => {
+                                  if (maxTopping < 7) {
+                                    const updatedNums = item.nums + 1;
+                                    const updatedToppingAfterData = [
+                                      ...reactToppingAfterData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingAfterData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
+                                      );
+                                    updatedToppingAfterData[itemIndex] =
+                                      updatedItem;
+
+                                    setReactToppingAfterData(
+                                      updatedToppingAfterData
+                                    );
+                                    setMaxTopping(maxTopping + 1);
+                                  } else if (maxTopping >= 7) {
+                                    alert("토핑의 최대 갯수는 7개 입니다.");
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faPlus} />
+                              </button>
+                              <button>{item.nums}</button>
+                              <button
+                                onClick={() => {
+                                  if (maxTopping > 0) {
+                                    const updatedNums = item.nums - 1;
+                                    const updatedToppingAfterData = [
+                                      ...reactToppingAfterData
+                                    ];
+                                    const updatedItem = {
+                                      ...item,
+                                      nums: updatedNums
+                                    };
+                                    const itemIndex =
+                                      updatedToppingAfterData.findIndex(
+                                        (dataItem) => dataItem.id === item.id
+                                      );
+                                    updatedToppingAfterData[itemIndex] =
+                                      updatedItem;
+
+                                    setReactToppingAfterData(
+                                      updatedToppingAfterData
+                                    );
+                                    setMaxTopping(maxTopping - 1);
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faMinus} />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
-              </Accordion>
+                </div>
+              </div>
             </div>
 
             <div className="select_number">

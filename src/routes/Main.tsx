@@ -26,20 +26,20 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import eventModal from "../img/event.png";
+// import eventModal from "../img/event.png";
 
 interface MainProps {
   windowWidth: number;
 }
 
 const Main: React.FC<MainProps> = ({ windowWidth }) => {
-  const [modalUp, setModalUp] = useState<boolean>(true);
+  // const [modalUp, setModalUp] = useState<boolean>(true);
   const [swiper, setSwiper] = useState<any>(null);
   const [isAutoPlay, setIsAutoPlay] = useState<boolean>(true);
 
-  const offModal = () => {
-    setModalUp(false);
-  };
+  // const offModal = () => {
+  //   setModalUp(false);
+  // };
   const toggleAutoPlay = () => {
     if (swiper) {
       if (isAutoPlay) {
@@ -347,14 +347,14 @@ const Main: React.FC<MainProps> = ({ windowWidth }) => {
         </div>
       </article>
 
-      {modalUp && (
+      {/* {modalUp && (
         <div className="modals">
           <img src={eventModal} alt="" />
           <span className="xBtn" onClick={offModal}>
             <FontAwesomeIcon icon={faXmark} />
           </span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

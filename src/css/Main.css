@@ -1,27 +1,3 @@
-.modals {
-  position: fixed;
-  z-index: 7;
-  top: 180px;
-  width: 180px;
-  height: 200px;
-  right: 8%;
-  animation-name: upDown;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.modals img {
-  width: 100%;
-}
-
-.modals .xBtn {
-  position: absolute;
-  font-size: 1.5rem;
-  margin-left: -18px;
-  cursor: pointer;
-}
-
 @keyframes upDown {
   from {
     top: 180px;
