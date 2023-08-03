@@ -660,6 +660,10 @@
   border: 1px solid #ccc;
 }
 
+.half .select_box .select_number .btn_box.my_menu {
+  justify-content: center;
+}
+
 .half .select_box .select_number .btn_box > button {
   font-size: .9rem;
   color: #333;

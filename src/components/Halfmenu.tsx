@@ -6,6 +6,7 @@ import toppingCheese from "../data/toppingCheeseData";
 import toppingAfterData from "../data/toppingAfterData";
 import specialData from "../data/specialData";
 import basicData from "../data/basicData";
+import drinkData from "../data/drinkData";
 
 import {
   faChevronDown,
@@ -48,6 +49,7 @@ const Halfmenu: React.FC = () => {
   ]);
   const [reactSpecialData, setReactSpecialData] = useState([...specialData]);
   const [reactBasicData, setReactBasicData] = useState([...basicData]);
+  const [reactDrinkData, setReactDrinkData] = useState([...drinkData]);
   const [maxTopping, setMaxTopping] = useState<number>(0);
 
   const [onbase, setOnBase] = useState<boolean>(false);
@@ -837,14 +839,13 @@ const Halfmenu: React.FC = () => {
               <h4>음료&기타</h4>
 
               <div>
-                {reactSpecialData.map((item: any) => (
+                {reactDrinkData.map((item: any) => (
                   <div className="flex_sb" key={item.id}>
                     <div className="flex">
                       <img src={item.img} alt="" />
                       <div className="txt_box">
                         <p>{item.name}</p>
                         <div className="flex">
-                          <p>{item.maxPrice.toLocaleString()}</p>
                           <p>{item.price.toLocaleString()}</p>
                         </div>
                       </div>
@@ -853,17 +854,17 @@ const Halfmenu: React.FC = () => {
                       <button
                         onClick={() => {
                           const updatedNums = item.nums + 1;
-                          const updatedSpecialData = [...reactSpecialData];
+                          const updatedDrinkData = [...reactDrinkData];
                           const updatedItem = {
                             ...item,
                             nums: updatedNums
                           };
-                          const itemIndex = updatedSpecialData.findIndex(
+                          const itemIndex = updatedDrinkData.findIndex(
                             (dataItem) => dataItem.id === item.id
                           );
-                          updatedSpecialData[itemIndex] = updatedItem;
+                          updatedDrinkData[itemIndex] = updatedItem;
 
-                          setReactSpecialData(updatedSpecialData);
+                          setReactDrinkData(updatedDrinkData);
                         }}
                       >
                         <FontAwesomeIcon icon={faPlus} />
@@ -873,17 +874,17 @@ const Halfmenu: React.FC = () => {
                         onClick={() => {
                           if (maxTopping > 0) {
                             const updatedNums = item.nums - 1;
-                            const updatedSpecialData = [...reactSpecialData];
+                            const updatedDrinkData = [...reactDrinkData];
                             const updatedItem = {
                               ...item,
                               nums: updatedNums
                             };
-                            const itemIndex = updatedSpecialData.findIndex(
+                            const itemIndex = updatedDrinkData.findIndex(
                               (dataItem) => dataItem.id === item.id
                             );
-                            updatedSpecialData[itemIndex] = updatedItem;
+                            updatedDrinkData[itemIndex] = updatedItem;
 
-                            setReactSpecialData(updatedSpecialData);
+                            setReactDrinkData(updatedDrinkData);
                           }
                         }}
                       >

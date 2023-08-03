@@ -6,6 +6,7 @@ import toppingCheese from "../data/toppingCheeseData";
 import toppingAfterData from "../data/toppingAfterData";
 import specialData from "../data/specialData";
 import basicData from "../data/basicData";
+import drinkData from "../data/drinkData";
 
 import {
   faChevronDown,
@@ -32,7 +33,7 @@ const Mymenu: React.FC = () => {
   const [btnClickedM, setBtnClickedM] = useState<boolean>(false);
   const [btnClickedtomato, setBtnClickedtomato] = useState<boolean>(true);
   const [btnClickedboolgogi, setBtnClickedboolgogi] = useState<boolean>(false);
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
 
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const [tabsIndex, setTabsIndex] = useState<number>(0);
@@ -47,6 +48,7 @@ const Mymenu: React.FC = () => {
   ]);
   const [reactSpecialData, setReactSpecialData] = useState([...specialData]);
   const [reactBasicData, setReactBasicData] = useState([...basicData]);
+  const [reactDrinkData, setReactDrinkData] = useState([...drinkData]);
   const [maxTopping, setMaxTopping] = useState<number>(0);
 
   const [onbase, setOnBase] = useState<boolean>(false);
@@ -533,8 +535,8 @@ const Mymenu: React.FC = () => {
 
             <div className="select_number">
               <h4>수량 선택</h4>
-              <div className="btn_box">
-                <button
+              <div className="btn_box my_menu">
+                {/* <button
                   onClick={() => {
                     if (quantity <= 0) {
                       return;
@@ -543,15 +545,16 @@ const Mymenu: React.FC = () => {
                   }}
                 >
                   <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <button>{quantity}</button>
-                <button
+                </button> */}
+                {/* <button>{quantity}</button> */}
+                <button className="flex_center">1</button>
+                {/* <button
                   onClick={() => {
                     setQuantity(quantity + 1);
                   }}
                 >
                   <FontAwesomeIcon icon={faPlus} />
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -696,14 +699,13 @@ const Mymenu: React.FC = () => {
               <h4>음료&기타</h4>
 
               <div>
-                {reactSpecialData.map((item: any) => (
+                {reactDrinkData.map((item: any) => (
                   <div className="flex_sb" key={item.id}>
                     <div className="flex">
                       <img src={item.img} alt="" />
                       <div className="txt_box">
                         <p>{item.name}</p>
                         <div className="flex">
-                          <p>{item.maxPrice.toLocaleString()}</p>
                           <p>{item.price.toLocaleString()}</p>
                         </div>
                       </div>
@@ -712,17 +714,17 @@ const Mymenu: React.FC = () => {
                       <button
                         onClick={() => {
                           const updatedNums = item.nums + 1;
-                          const updatedSpecialData = [...reactSpecialData];
+                          const updatedDrinkData = [...reactDrinkData];
                           const updatedItem = {
                             ...item,
                             nums: updatedNums
                           };
-                          const itemIndex = updatedSpecialData.findIndex(
+                          const itemIndex = updatedDrinkData.findIndex(
                             (dataItem) => dataItem.id === item.id
                           );
-                          updatedSpecialData[itemIndex] = updatedItem;
+                          updatedDrinkData[itemIndex] = updatedItem;
 
-                          setReactSpecialData(updatedSpecialData);
+                          setReactDrinkData(updatedDrinkData);
                         }}
                       >
                         <FontAwesomeIcon icon={faPlus} />
@@ -732,17 +734,17 @@ const Mymenu: React.FC = () => {
                         onClick={() => {
                           if (maxTopping > 0) {
                             const updatedNums = item.nums - 1;
-                            const updatedSpecialData = [...reactSpecialData];
+                            const updatedDrinkData = [...reactDrinkData];
                             const updatedItem = {
                               ...item,
                               nums: updatedNums
                             };
-                            const itemIndex = updatedSpecialData.findIndex(
+                            const itemIndex = updatedDrinkData.findIndex(
                               (dataItem) => dataItem.id === item.id
                             );
-                            updatedSpecialData[itemIndex] = updatedItem;
+                            updatedDrinkData[itemIndex] = updatedItem;
 
-                            setReactSpecialData(updatedSpecialData);
+                            setReactDrinkData(updatedDrinkData);
                           }
                         }}
                       >
