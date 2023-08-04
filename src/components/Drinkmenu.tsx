@@ -64,7 +64,13 @@ const Drinkmenu: React.FC = () => {
                       </button>
                     </div>
                     <div>
-                      <button>주문</button>
+                      <button
+                        onClick={() =>
+                          alert(`${item.nums}의 수량만큼 주문하였습니다.`)
+                        }
+                      >
+                        주문
+                      </button>
                     </div>
                   </div>
                 </div>

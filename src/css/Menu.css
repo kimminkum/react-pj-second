@@ -769,10 +769,30 @@
 .drink_order > div:nth-child(1) {
   width: 60%;
   height: 50px;
+  border: 1px solid #aaa;
+}
+.drink_order > div:nth-child(1) > button:nth-child(1) {
+  text-align: center;
+  width: 30%;
+  height: 50px;
+  border-right: 1px solid #aaa;
+}
+.drink_order > div:nth-child(1) > button:nth-child(3) {
+  text-align: center;
+  width: 30%;
+  height: 50px;
+  border-left: 1px solid #aaa;
 }
 
 .drink_order > div:nth-child(2) {
-  width: 28%;
+  width: 35%;
+  background-color: red;
+  text-align: center;
+}
+
+.drink_order > div:nth-child(2) button {
+  color: white;
   height: 50px;
-  line-height: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
