@@ -29,7 +29,7 @@ const Drinkmenu: React.FC = () => {
                   <div className="pro_name">{item.name}</div>
                   <div className="pro_price flex">
                     <div className={`${item.price === "" ? "" : "price"}`}>
-                      {item.price}
+                      {item.price.toLocaleString()} 원
                     </div>
                   </div>
 
